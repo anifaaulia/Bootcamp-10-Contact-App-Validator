@@ -1,0 +1,45 @@
+<div class="container mt-3">
+  <div class="row">
+    <div class="col-md-8">
+      <h2>Daftar Contact</h2>
+
+      <!--menampilka tabel daftar kontak-->
+      <table class="table" style="color: cadetblue;">
+        <thead>
+          <tr>
+            <th scope="col">No</th>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+          <!--menampilka alert jika data tidak ada-->
+          <% if (contacts.length === 0) { %>
+            <tr>
+              <td colspan="4">
+                <div class="alert alert-danger fw-bold" role="alert">
+                  Data Contact Kosong
+                </div>
+              </td>
+            </tr>
+            <% } %> 
+            
+            <% contacts.forEach((contact, i) => { i++ %>
+            
+            <!--menampilkan daftar kontak diambiil dari sesuai dengan data di contacts.json-->
+            <tr>
+            <th scope="row"> <%= i++ %> </th>
+            <td><%= contact.name %></td>
+            <td><%= contact.mobile %></td>
+            <td> <a href="/contact/<%=contact.name %>" class="badge text-bg-success"><i class="bi bi-info-circle"></i>detail</span></td>
+            </tr>
+            <% }) %>
+          </tbody>
+        </table>
+        <!--tombol submit-->
+        <a href="/contact/add" class="btn btn-secondary">Add New Contact</a></span>
+    </div>
+  </div>
+</div>
